@@ -1,0 +1,20 @@
+{% extends "plantillapadre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+
+<h1> Hola!! Bienvenido a la pagina de moderadores </h1>
+
+<p> Rellenar el formulario de inscripcion </p>
+
+<form action= "{% url 'moderador' %}" method="POST"> {% csrf_token %}
+    <table>
+
+     {{ formu2.as_table }}
+
+    </table>
+
+    <input type="submit", value="Guardar Moderador">
+</form>
+{% endblock %}

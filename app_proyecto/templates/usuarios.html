@@ -1,0 +1,19 @@
+{% extends "plantillapadre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+
+<h1> Hola!! Bienvenido a la pagina de usuarios </h1>
+<p> Rellenar el formulario de inscripcion </p>
+
+<form action= "{% url 'usuariofiel' %}" method="POST"> {% csrf_token %}
+    <table>
+
+     {{ formu.as_table }}
+
+    </table>
+
+    <input type="submit", value="Guardar Usuario">
+</form>
+{% endblock %}
