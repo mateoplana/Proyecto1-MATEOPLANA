@@ -17,11 +17,11 @@ def formulariousuario(request):
 
             info=formu.cleaned_data
 
-            user = usuarioclass (nombre=info['nombre'], usuario=info['nombre de  usuario'], antiguedad=info['antiguedad usuario'] )
+            user = usuarioclass (nombre=info['nombre'], usuario=info['usuario'], antiguedad=info['antiguedad'] )
 
             user.save()
         
-            return render(request,"inicio.html")
+            return render(request,"inicio.html", { "mensaje":"Usuario guardado correctamente" })
     else:
         formu=userformulario()
 
@@ -44,7 +44,7 @@ def formulariomoderador(request):
 
             mod.save()
         
-            return render(request,"inicio.html")
+            return render(request,"inicio.html", { "mensaje":"Moderador guardado correctamente" })
     else:
         formu2=modformulario()
 
@@ -64,11 +64,11 @@ def formulariousuariofiel(request):
 
             info1=formu2.cleaned_data
 
-            userf = usuarioclass (nombre=info1['nombre'], usuario=info1['nombre de  usuario'], antiguedad=info1['antiguedad usuario'] )
+            userf = usuario_fiel (nombre=info1['nombre'], usuario=info1['usuario'], antiguedad=info1['antiguedad'] )
 
             userf.save()
         
-            return render(request,"inicio.html")
+            return render(request,"inicio.html", { "mensaje":"Usuario fiel guardado correctamente" })
     else:
         formu2=usuarioflformulario()
 
