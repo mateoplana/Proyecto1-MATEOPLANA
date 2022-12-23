@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .forms import *
 from .models import *
+from django.http import HttpResponse
 
 # Create your views here.
 
@@ -73,3 +74,48 @@ def formulariousuariofiel(request):
         formu2=usuarioflformulario()
 
         return render(request,"usuariosfieles.html", {"formu2":formu2} )
+
+
+def busquedausuario(request):
+    return render(request, "buscarusuario.html")
+
+def buscarusuario(request):
+     
+        usuario=request.GET["usuario"]
+        if usuario!="":
+         usuarios=usuarioclass.objects.filter(usuario=usuario)
+
+         return render(request, "resultadosusuario.html", {"usuarios":usuarios})
+
+        else:
+            return render(request, "buscarusuario.html", {"mensaje":"Ingresar un usuario valido"})
+
+
+def busquedausuariofiel(request):
+    return render(request, "buscarusuariofiel.html")
+
+def buscarusuariofiel(request):
+     
+        usuario=request.GET["usuario"]
+        if usuario!="":
+         usuarios=usuario_fiel.objects.filter(usuario=usuario)
+
+         return render(request, "resultadosusuariofiel.html", {"usuarios":usuarios})
+
+        else:
+            return render(request, "buscarusuariofiel.html", {"mensaje":"Ingresar un usuario valido"})
+
+
+def busquedamoderador(request):
+    return render(request, "buscarmoderador.html")
+
+def buscarmoderador(request):
+     
+        usuario=request.GET["usuario"]
+        if usuario!="":
+         usuarios=moderador.objects.filter(usuario=usuario)
+
+         return render(request, "resultadosmoderador.html", {"usuarios":usuarios})
+
+        else:
+            return render(request, "buscarmoderador.html", {"mensaje":"Ingresar un usuario valido"})

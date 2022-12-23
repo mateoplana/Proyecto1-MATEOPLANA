@@ -1,0 +1,19 @@
+{% extends "plantillapadre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+
+<h1> Hola!! Bienvenido al buscador de moderadores </h1>
+<p></p>
+
+    <form action="{% url 'buscarmoderador' %}" method="GET"> {% csrf_token %}
+
+        <input type="text" name="usuario" id="usuario", placeholder="Inserte Usuario">
+
+        <input type="submit" value="Buscar moderador">  
+
+    </form>
+
+
+{% endblock %}

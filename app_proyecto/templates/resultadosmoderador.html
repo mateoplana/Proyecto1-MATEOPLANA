@@ -1,0 +1,16 @@
+{% extends "plantillapadre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+
+<h1> Resultado de la busqueda </h1>
+<p></p>
+
+{% for usuario in usuarios %}
+
+<h2> {{  usuario.nombre }}-{{ usuario.usuario }}-{{ usuario.email }} </h2> 
+
+{% endfor %}
+
+{% endblock %}
